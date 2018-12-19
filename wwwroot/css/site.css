@@ -18,6 +18,7 @@ body {
     margin-top: -20px;
     background-image: url("https://cn.opendesktop.org/img/1/8/5/7/6e2d5404cd1863aa92b957428f214b1e32e7.png");
     background-repeat: no-repeat;
+    background-size: 100% auto;
     text-align: center;
     height: 1000px;
     color: white;
@@ -42,7 +43,7 @@ body {
 }
 
 #title{
-    /* margin-top: 40px; */
+    /* margin-top: -5px; */
 }
 
 p{
