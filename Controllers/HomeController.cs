@@ -46,6 +46,12 @@ namespace LiftMaps.Controllers
             ViewBag.conditions = json["weather"]["conditions"];
             return View();
         }
+
+        [HttpGet("/")]
+        public IActionResult Home()
+        {
+            return View();
+        }
         private async Task<string> GetExternalResponse(string address)
         {
             var client = new HttpClient();

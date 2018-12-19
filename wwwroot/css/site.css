@@ -3,12 +3,32 @@
     display: none !important;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 .wrapper{
     width: 1000px;
 }
 
+.homep{
+    margin-top: -20px;
+    background-image: url("https://cn.opendesktop.org/img/1/8/5/7/6e2d5404cd1863aa92b957428f214b1e32e7.png");
+    background-repeat: no-repeat;
+    text-align: center;
+    height: 1000px;
+    color: white;
+}
+
 #whistler{
     width: 2000px;
+}
+
+.mainwrap{
+    margin: 0;
 }
 
 #footer{
@@ -19,6 +39,10 @@
 #footer1{
     position: relative;
     top: -150px;
+}
+
+#title{
+    /* margin-top: 40px; */
 }
 
 p{
