@@ -16,6 +16,11 @@
     top: -200px;
 }
 
+#footer1{
+    position: relative;
+    top: -150px;
+}
+
 p{
     text-align: center;
     color: white;
