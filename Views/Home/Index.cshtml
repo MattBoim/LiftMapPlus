@@ -1,0 +1,563 @@
+@{
+    ViewData["Title"] = "Interactive Lift Map";
+}
+<meta http-equiv="refresh" content="30" />
+    
+<div class="wrapper">
+    
+    <!-- <h1>Lift Map Whistler Blackcomb</h1> -->
+    <!-- <p>@ViewBag.status</p> -->
+    <img id="whistler" src="../images/TrailMap.jpg" usemap="#whistlermap">
+
+    <map name="whistlermap">
+        <!-- Blackcomb Mountain -->
+        <area title="Peak2Peak" coords="883,667,20" shape="circle" class="tooltipp" data-tooltip-content="#P2P">
+        <area title="7thHeaven" coords="566,499,20" shape="circle" class="tooltipp" data-tooltip-content="#7thHeaven">
+        <area title="HorstmanTBar"  coords="349,490,20" shape="circle" class="tooltipp" data-tooltip-content="#Horstman">
+        <area title="GlacierExpress"  coords="317,534,20" shape="circle" class="tooltipp" data-tooltip-content="#Glacier">
+        <area title="ShowcaseTBar"  coords="347,420,20" shape="circle" class="tooltipp" data-tooltip-content="#Showcase">
+        <area title="CrystalRidgeExpress"  coords="250,808,20" shape="circle" class="tooltipp" data-tooltip-content="#Crystal">
+        <area title="ExceleratorExpress"  coords="471,808,20" shape="circle" class="tooltipp" data-tooltip-content="#Excelerator">
+        <area title="JerseyCreamExpress"  coords="444,651,20" shape="circle" class="tooltipp" data-tooltip-content="#Jersey">
+        <area title="NewCatskinnerExpress"  coords="575,623,20" shape="circle" class="tooltipp" data-tooltip-content="#CatSkinner">
+        <area title="NewBlackcombGondola"  coords="562,672,20" shape="circle" class="tooltipp" data-tooltip-content="#BCGondolaMid">
+        <area title="ExcaliburGondola"  coords="669,1018,20" shape="circle" class="tooltipp" data-tooltip-content="#ExcaliburMid">
+        <area title="NewBlackcombGondola"  coords="679,981,20" shape="circle" class="tooltipp" data-tooltip-content="#BCGondolaLow">
+        <area title="ExcaliburGondola"  coords="892,1142,20" shape="circle" class="tooltipp" data-tooltip-content="#ExcaliburLow">
+        <area title="MagicChain"  coords="823,1143,20" shape="circle" class="tooltipp" data-tooltip-content="#Magic">
+        <!-- Whistler Mountain -->
+        <area title="SymphonyExpress" coords="1181,435,20" shape="circle" class="tooltipp" data-tooltip-content="#Symphony">
+        <area title="Harmony6Express" coords="1241,503,20" shape="circle" class="tooltipp" data-tooltip-content="#Harmony6">
+        <area title="Emerald6Express" coords="1228,600,20" shape="circle" class="tooltipp" data-tooltip-content="#Emerald6">
+        <area title="WhistlerVillageGondMid" coords="1155,844,20" shape="circle" class="tooltipp" data-tooltip-content="#WhistlerVillageMid">
+        <area title="WhistlerVillageGondLow" coords="1057,1027,20" shape="circle" class="tooltipp" data-tooltip-content="#WhistlerVillageLow">
+        <area title="FitzsimmonsExpress" coords="1056,1062,20" shape="circle" class="tooltipp" data-tooltip-content="#Fitzsimmons">
+        <area title="GarbanzoExpress" coords="1171,867,20" shape="circle" class="tooltipp" data-tooltip-content="#Garbanzo">
+        <area title="BigRedExpress" coords="1458,789,20" shape="circle" class="tooltipp" data-tooltip-content="#BigRed">
+        <area title="CreeksideGond" coords="1640,1027,20" shape="circle" class="tooltipp" data-tooltip-content="#Creekside">
+        <area title="OlympicChair" coords="1041,890,20" shape="circle" class="tooltipp" data-tooltip-content="#Olympic">
+        <area title="FranzsChair" coords="1415,622,20" shape="circle" class="tooltipp" data-tooltip-content="#Franzs">
+        <area title="TBar" coords="1397,520,20" shape="circle" class="tooltipp" data-tooltip-content="#TBar">
+        <area title="PeakExpress" coords="1499,483,20" shape="circle" class="tooltipp" data-tooltip-content="#Peak">
+
+    </map>
+    <div id="stats">
+        <h1>Open: @ViewBag.stats.percentage.open% | On Hold: @ViewBag.stats.percentage.hold% | Closed: @ViewBag.stats.percentage.closed%</h1>
+        <p>@ViewBag.weather</p>
+    </div>
+    <div id="weathericon">
+    <!-- <h1>ViewBag.conditions</h1> -->
+    @if(ViewBag.conditions == "Snow")
+    {
+        <svg class="snow-cloud" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+            <path d="M512,176c0-61.8-50.2-112-112-112c-5.3,0-10.6,0.4-15.8,1.1C354.3,24.4,307.2,0,256,0s-98.3,24.4-128.2,65.1
+                c-5.2-0.8-10.5-1.1-15.8-1.1C50.2,64,0,114.2,0,176s50.2,112,112,112c13.7,0,27.1-2.5,39.7-7.3c29,25.2,65.8,39.3,104.3,39.3
+                c38.5,0,75.3-14.1,104.3-39.3c12.6,4.8,26,7.3,39.7,7.3C461.8,288,512,237.8,512,176z M354.1,241.3C330.6,269.6,295.6,288,256,288
+                c-39.6,0-74.6-18.4-98.1-46.7c-13,9.2-28.8,14.7-45.9,14.7c-44.2,0-80-35.8-80-80s35.8-80,80-80c10.8,0,21.1,2.2,30.4,6.1
+                C163.7,60.7,206.3,32,256,32s92.3,28.7,113.5,70.1c9.4-3.9,19.7-6.1,30.5-6.1c44.2,0,80,35.8,80,80s-35.8,80-80,80
+                C382.9,256,367.1,250.5,354.1,241.3z" />
+
+            <path class="snowflake-one" d="M131.8,349.9c-1.5-5.6-7.3-8.9-12.9-7.4l-11.9,3.2c-1.1-1.5-2.2-3-3.6-4.4c-1.4-1.4-2.9-2.6-4.5-3.6l3.2-11.9
+            c1.5-5.6-1.8-11.4-7.4-12.9c-5.6-1.5-11.4,1.8-12.9,7.4l-3.2,12.1c-3.8,0.3-7.5,1.2-10.9,2.9l-8.8-8.8c-4.1-4.1-10.8-4.1-14.8,0
+            c-4.1,4.1-4.1,10.8,0,14.9l8.8,8.8c-1.6,3.5-2.6,7.2-2.9,11l-12,3.2c-5.6,1.5-9,7.2-7.5,12.9c1.5,5.6,7.3,8.9,12.9,7.4l11.9-3.2
+            c1.1,1.6,2.2,3.1,3.7,4.5c1.4,1.4,2.9,2.6,4.4,3.6l-3.2,11.9c-1.5,5.6,1.8,11.4,7.4,12.9c5.6,1.5,11.3-1.8,12.8-7.4l3.2-12
+            c3.8-0.3,7.5-1.3,11-2.9l8.8,8.8c4.1,4.1,10.7,4,14.8,0c4.1-4.1,4.1-10.7,0-14.8l-8.8-8.8c1.7-3.5,2.7-7.2,2.9-11l12.1-3.2
+            C130,361.3,133.3,355.6,131.8,349.9z M88.6,371c-4.1,4.1-10.8,4.1-14.9,0c-4.1-4.1-4.1-10.8,0-14.8c4.1-4.1,10.8-4.1,14.9,0
+            S92.6,366.9,88.6,371z" />
+            <path class="snowflake-two" d="M304.8,437.6l-12.6-7.2c0.4-2.2,0.7-4.4,0.7-6.7c0-2.3-0.3-4.5-0.7-6.7l12.6-7.2c5.9-3.4,7.9-11,4.5-16.8
+            c-3.4-5.9-10.9-7.9-16.8-4.5l-12.7,7.3c-3.4-2.9-7.2-5.2-11.5-6.7v-14.6c0-6.8-5.5-12.3-12.3-12.3s-12.3,5.5-12.3,12.3V389
+            c-4.3,1.5-8.1,3.8-11.5,6.7l-12.7-7.3c-5.9-3.4-13.5-1.4-16.9,4.5c-3.4,5.9-1.4,13.4,4.5,16.8l12.5,7.2c-0.4,2.2-0.7,4.4-0.7,6.7
+            c0,2.3,0.3,4.5,0.7,6.7l-12.5,7.2c-5.9,3.4-7.9,11-4.5,16.9s10.9,7.9,16.8,4.5l12.7-7.3c3.4,2.9,7.2,5.1,11.5,6.7V473
+            c0,6.8,5.5,12.3,12.3,12.3s12.3-5.5,12.3-12.3v-14.6c4.3-1.5,8.2-3.8,11.5-6.7l12.7,7.3c5.9,3.4,13.4,1.4,16.8-4.5
+            C312.8,448.6,310.7,441.1,304.8,437.6z M256,436c-6.8,0-12.3-5.5-12.3-12.3c0-6.8,5.5-12.3,12.3-12.3s12.3,5.5,12.3,12.3
+            C268.3,430.5,262.8,436,256,436z" />
+            <path class="snowflake-three" d="M474.2,396.2l-12.1-3.2c-0.3-3.8-1.2-7.5-2.9-11l8.8-8.8c4.1-4.1,4.1-10.8,0-14.9c-4.1-4.1-10.7-4.1-14.8,0
+            l-8.8,8.8c-3.5-1.6-7.1-2.6-11-2.9l-3.2-12.1c-1.5-5.6-7.2-8.9-12.9-7.4c-5.6,1.5-8.9,7.3-7.4,12.9l3.2,11.9
+            c-1.6,1.1-3.1,2.3-4.5,3.7c-1.4,1.4-2.5,2.9-3.6,4.5l-11.9-3.2c-5.6-1.5-11.4,1.9-12.9,7.4c-1.5,5.6,1.9,11.4,7.4,12.9l12,3.2
+            c0.3,3.8,1.3,7.5,3,11l-8.8,8.8c-4.1,4.1-4.1,10.7,0,14.8c4.1,4.1,10.7,4.1,14.8,0l8.8-8.8c3.5,1.7,7.2,2.7,11,3l3.2,12
+            c1.5,5.6,7.2,8.9,12.9,7.4c5.6-1.5,9-7.2,7.5-12.9l-3.2-11.9c1.5-1.1,3-2.2,4.5-3.6c1.4-1.4,2.5-2.9,3.6-4.5l11.9,3.2
+            c5.6,1.5,11.4-1.9,12.9-7.4C483.1,403.5,479.8,397.8,474.2,396.2z M438.3,402.9c-4.1,4.1-10.8,4.1-14.9,0c-4.1-4.1-4.1-10.7,0-14.9
+            c4.1-4.1,10.8-4.1,14.9,0C442.4,392.2,442.4,398.9,438.3,402.9z" />
+        </svg>
+    }
+    else if(ViewBag.conditions == "Thunder")
+    {
+        <svg class="thunder-cloud" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+            <path d="M400,64c-5.3,0-10.6,0.4-15.8,1.1C354.3,24.4,307.2,0,256,0s-98.3,24.4-128.2,65.1c-5.2-0.8-10.5-1.1-15.8-1.1
+                C50.2,64,0,114.2,0,176s50.2,112,112,112c13.7,0,27.1-2.5,39.7-7.3c12.3,10.7,26.2,19,40.9,25.4l24.9-24.9
+                c-23.5-7.6-44.2-21.3-59.6-39.9c-13,9.2-28.8,14.7-45.9,14.7c-44.2,0-80-35.8-80-80s35.8-80,80-80c10.8,0,21.1,2.2,30.4,6.1
+                C163.7,60.7,206.3,32,256,32s92.3,28.7,113.5,70.1c9.4-3.9,19.7-6.1,30.5-6.1c44.2,0,80,35.8,80,80s-35.8,80-80,80
+                c-17.1,0-32.9-5.5-45.9-14.7c-10.4,12.5-23.3,22.7-37.6,30.6L303,312.2c20.9-6.6,40.5-16.9,57.3-31.6c12.6,4.8,26,7.3,39.7,7.3
+                c61.8,0,112-50.2,112-112S461.8,64,400,64z" />
+            <polygon class="bolt" points="192,352 224,384 192,480 288,384 256,352 288,256 " />
+        </svg>
+    }
+    else if(ViewBag.conditions == "Cloudy" || ViewBag.conditions == "Wind")
+    {
+        <svg class="windy-cloud" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+            <g class="cloud-wrap">
+            <path class="cloud" d="M417,166.1c-24-24.5-57.1-38.8-91.7-38.8c-34.6,0-67.7,14.2-91.7,38.8c-52.8,2.5-95,46.2-95,99.6
+            c0,55,44.7,99.7,99.7,99.7c5.8,0,11.6-0.5,17.3-1.5c20.7,13.5,44.9,20.9,69.7,20.9c24.9,0,49.1-7.3,69.8-20.9
+            c5.7,1,11.5,1.5,17.3,1.5c54.9,0,99.6-44.7,99.6-99.7C512,212.3,469.8,168.5,417,166.1z M412.4,333.3c-8.3,0-16.4-1.5-24-4.4
+            c-17.5,15.2-39.8,23.8-63.1,23.8c-23.2,0-45.5-8.5-63-23.8c-7.6,2.9-15.8,4.4-24,4.4c-37.3,0-67.7-30.4-67.7-67.7
+            c0-37.3,30.4-67.7,67.7-67.7c3.2,0,6.4,0.2,9.5,0.7c18.1-24.6,46.5-39.4,77.5-39.4c30.9,0,59.4,14.8,77.5,39.4
+            c3.1-0.5,6.3-0.7,9.6-0.7c37.3,0,67.6,30.4,67.6,67.7C480,303,449.7,333.3,412.4,333.3z" />
+            </g>
+            <path class="wind-three" d="M144,352H16c-8.8,0-16,7.2-16,16s7.2,16,16,16h128c8.8,0,16-7.2,16-16S152.8,352,144,352z" />
+            <path class="wind-two" d="M16,320h94c8.8,0,16-7.2,16-16s-7.2-16-16-16H16c-8.8,0-16,7.2-16,16S7.2,320,16,320z" />
+            <path class="wind-one" d="M16,256h64c8.8,0,16-7.2,16-16s-7.2-16-16-16H16c-8.8,0-16,7.2-16,16S7.2,256,16,256z" />
+        </svg>
+    }
+    else if(ViewBag.conditions == "Sun")
+    {
+        <svg class="sunshine" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+            <path class="sun-full" d="M256,144c-61.8,0-112,50.2-112,112s50.2,112,112,112s112-50.2,112-112S317.8,144,256,144z M256,336
+                c-44.2,0-80-35.8-80-80s35.8-80,80-80s80,35.8,80,80S300.2,336,256,336z" />
+            <path class="sun-ray-eight" d="M131.6,357.8l-22.6,22.6c-6.2,6.2-6.2,16.4,0,22.6s16.4,6.2,22.6,0l22.6-22.6c6.2-6.3,6.2-16.4,0-22.6
+                C147.9,351.6,137.8,351.6,131.6,357.8z" />
+            <path class="sun-ray-seven" d="M256,400c-8.8,0-16,7.2-16,16v32c0,8.8,7.2,16,16,16s16-7.2,16-16v-32C272,407.2,264.8,400,256,400z" />
+            <path class="sun-ray-six" d="M380.5,357.8c-6.3-6.2-16.4-6.2-22.6,0c-6.3,6.2-6.3,16.4,0,22.6l22.6,22.6c6.2,6.2,16.4,6.2,22.6,0
+                s6.2-16.4,0-22.6L380.5,357.8z" />
+            <path class="sun-ray-five" d="M448,240h-32c-8.8,0-16,7.2-16,16s7.2,16,16,16h32c8.8,0,16-7.2,16-16S456.8,240,448,240z" />
+            <path class="sun-ray-four" d="M380.4,154.2l22.6-22.6c6.2-6.2,6.2-16.4,0-22.6s-16.4-6.2-22.6,0l-22.6,22.6c-6.2,6.2-6.2,16.4,0,22.6
+                C364.1,160.4,374.2,160.4,380.4,154.2z" />
+            <path class="sun-ray-three" d="M256,112c8.8,0,16-7.2,16-16V64c0-8.8-7.2-16-16-16s-16,7.2-16,16v32C240,104.8,247.2,112,256,112z" />
+            <path class="sun-ray-two" d="M131.5,154.2c6.3,6.2,16.4,6.2,22.6,0c6.3-6.2,6.3-16.4,0-22.6l-22.6-22.6c-6.2-6.2-16.4-6.2-22.6,0
+                c-6.2,6.2-6.2,16.4,0,22.6L131.5,154.2z" />
+            <path class="sun-ray-one" d="M112,256c0-8.8-7.2-16-16-16H64c-8.8,0-16,7.2-16,16s7.2,16,16,16h32C104.8,272,112,264.8,112,256z" />
+        </svg>
+    }
+    else if(ViewBag.condition == "Rain")
+    {
+        <svg class="rain-cloud" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+            <path class="raindrop-one" d="M96,384c0,17.7,14.3,32,32,32s32-14.3,32-32s-32-64-32-64S96,366.3,96,384z" />
+            <path class="raindrop-two" d="M225,480c0,17.7,14.3,32,32,32s32-14.3,32-32s-32-64-32-64S225,462.3,225,480z" />
+            <path class="raindrop-three" d="M352,448c0,17.7,14.3,32,32,32s32-14.3,32-32s-32-64-32-64S352,430.3,352,448z" />
+            <path d="M400,64c-5.3,0-10.6,0.4-15.8,1.1C354.3,24.4,307.2,0,256,0s-98.3,24.4-128.2,65.1c-5.2-0.8-10.5-1.1-15.8-1.1
+                C50.2,64,0,114.2,0,176s50.2,112,112,112c13.7,0,27.1-2.5,39.7-7.3c29,25.2,65.8,39.3,104.3,39.3c38.5,0,75.3-14.1,104.3-39.3
+                c12.6,4.8,26,7.3,39.7,7.3c61.8,0,112-50.2,112-112S461.8,64,400,64z M400,256c-17.1,0-32.9-5.5-45.9-14.7
+                C330.6,269.6,295.6,288,256,288c-39.6,0-74.6-18.4-98.1-46.7c-13,9.2-28.8,14.7-45.9,14.7c-44.2,0-80-35.8-80-80s35.8-80,80-80
+                c10.8,0,21.1,2.2,30.4,6.1C163.7,60.7,206.3,32,256,32s92.3,28.7,113.5,70.1c9.4-3.9,19.7-6.1,30.5-6.1c44.2,0,80,35.8,80,80
+                S444.2,256,400,256z" />
+        </svg>
+    }
+    </div>
+    <div id="footer">
+        <h5>Created by Matt Rozenboim</h5>
+    </div>
+    <!-- <div class="text-center">
+        coordinates :
+        <div id="coordinates">0</div>
+        saved coordinate:
+        <div id="savedcoordinate">0</div>
+    </div> -->
+
+    <div class="tooltip_templates">
+        <span id="Symphony">
+            @{var i = ViewBag.status["Symphony Express"];}
+            @if(i == "open")
+            {
+                <p>@i <br><i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                    <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="Harmony6">
+            @{i = ViewBag.status["Harmony 6 Express"];}
+            @if(i == "open")
+            {
+                <p>@i <br><i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                    <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="Emerald6">
+            @{i = ViewBag.status["Emerald 6 Express"];}
+            @if(i == "open")
+            {
+                <p>@i <br><i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                    <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="WhistlerVillageMid">
+            @{i = ViewBag.status["Whistler Village Gondola Mid"];}
+            @if(i == "open")
+            {
+                <p>@i <br><i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                    <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="WhistlerVillageLow">
+            @{i = ViewBag.status["Whistler Village Gondola Lower"];}
+            @if(i == "open")
+            {
+                <p>@i <br><i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                    <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="Fitzsimmons">
+            @{i = ViewBag.status["Fitzsimmons Express"];}
+            @if(i == "open")
+            {
+                <p>@i <br><i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                    <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="Garbanzo">
+            @{i = ViewBag.status["Garbanzo Express"];}
+            @if(i == "open")
+            {
+                <p>@i <br><i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                    <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="BigRed">
+            @{i = ViewBag.status["Big Red Express"];}
+            @if(i == "open")
+            {
+                <p>@i <br><i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                    <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="Creekside">
+            @{i = ViewBag.status["Creekside Gondola"];}
+            @if(i == "open")
+            {
+                <p>@i <br><i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                    <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="Olympic">
+            @{i = ViewBag.status["Olympic Chair"];}
+            @if(i == "open")
+            {
+                <p>@i <br><i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                    <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="Franzs">
+            @{i = ViewBag.status["Franz's Chair"];}
+            @if(i == "open")
+            {
+                <p>@i <br><i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                    <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="TBar">
+            @{i = ViewBag.status["T-Bars"];}
+            @if(i == "open")
+            {
+                <p>@i <br><i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                    <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="Peak">
+            @{i = ViewBag.status["Peak Express"];}
+            @if(i == "open")
+            {
+                <p>@i <br><i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                    <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="Magic">
+            @{i = ViewBag.status["Magic Chair"];}
+            @if(i == "open")
+            {
+                <p>@i <br><i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                    <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="7thHeaven">
+            @{i = ViewBag.status["7th Heaven Express"];}
+            @if(i == "open")
+            {
+                <p>@i <br><i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                    <p>@i <br><i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br><i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="BCGondolaMid">
+            @{i = @ViewBag.status["Blackcomb Gondola Mid"];}
+            @if(i == "open")
+            {
+                <p>@i <br> <i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="BCGondolaLow">
+            @{i = @ViewBag.status["Blackcomb Gondola Lower"];}
+            @if(i == "open")
+            {
+                <p>@i <br> <i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="CatSkinner">
+            @{i = @ViewBag.status["Catskinner Express"];}
+            @if(i == "open")
+            {
+                <p>@i <br> <i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="Crystal">
+            @{i = @ViewBag.status["Crystal Ridge Express"];}
+            @if(i == "open")
+            {
+                <p>@i <br> <i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="ExcaliburMid">
+            @{i = @ViewBag.status["Excalibur Gondola Mid"];}
+            @if(i == "open")
+            {
+                <p>@i <br> <i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="ExcaliburLow">
+            @{i = @ViewBag.status["Excalibur Gondola Lower"];}
+            @if(i == "open")
+            {
+                <p>@i <br> <i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="Excelerator">
+            @{i = @ViewBag.status["Excelerator Express"];}
+            @if(i == "open")
+            {
+                <p>@i <br> <i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="Glacier">
+            @{i = @ViewBag.status["Glacier Express"];}
+            @if(i == "open")
+            {
+                <p>@i <br> <i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="P2P">
+            @{i = @ViewBag.status["Peak 2 Peak Gondola"];}
+            @if(i == "open")
+            {
+                <p>@i <br> <i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+            
+        </span>
+        <span id="Horstman">
+            @{i = @ViewBag.status["Horstman T-Bar"];}
+            @if(i == "open")
+            {
+                <p>@i <br> <i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="Showcase">
+            @{i = @ViewBag.status["Showcase T-Bar"];}
+            @if(i == "open")
+            {
+                <p>@i <br> <i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+        <span id="Jersey">
+            @{ i = @ViewBag.status["Jersey Cream Express"];}
+            @if(i == "open")
+            {
+                <p>@i <br> <i class="fas fa-check"></i></p>
+            }
+            else if(i == "closed")
+            {
+                <p>@i <br> <i class="far fa-times-circle"></i></p>
+            }
+            else if(i == "hold")
+            {
+                    <p>@i <br> <i class="fas fa-hands-helping"></i></p>
+            }
+        </span>
+    </div>
+</div>
