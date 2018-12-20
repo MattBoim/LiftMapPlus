@@ -257,8 +257,33 @@ i{
     color: rgb(90, 90, 90);
 }
 
+.progress-ring{
+  animation: rotate 4s linear infinite;
+  -webkit-animation: rotate 4s linear infinite;
+  -moz-animation: rotate 4s linear infinite;
+}
+
 .progress-ring__circle{
   stroke-dasharray: 6 10;
+  
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes rotate {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 #weathericon svg {
