@@ -83,9 +83,171 @@ i{
     color: rgb(0, 40, 87);
 }
 
+#p2p{
+  position: absolute;
+  pointer-events: none;
+  top: 425px;
+  right: 690px;
+}
+
+#seventh{
+  position: absolute;
+  pointer-events: none;
+  top: 260px;
+  right: 1000px;
+}
+
+#horstman{
+  position: absolute;
+  pointer-events: none;
+  top: 250px;
+  right: 1215px;
+}
+
+#showcase{
+  position: absolute;
+  pointer-events: none;
+  top: 175px;
+  right: 1225px;
+}
+
+#glacier{
+  position: absolute;
+  pointer-events: none;
+  top: 290px;
+  right: 1255px;
+}
+
+#crystal{
+  position: absolute;
+  pointer-events: none;
+  top: 570px;
+  right: 1320px;
+}
+
+#excelerator{
+  position: absolute;
+  pointer-events: none;
+  top: 570px;
+  right: 1100px;
+}
+
+#excaliburMid{
+  position: absolute;
+  pointer-events: none;
+  top: 780px;
+  right: 900px;
+}
+
+#excaliburLow{
+  position: absolute;
+  pointer-events: none;
+  top: 910px;
+  right: 670px;
+}
+
+#magic{
+  position: absolute;
+  pointer-events: none;
+  top: 900px;
+  right: 750px;
+}
+
+#newblackLow{
+  position: absolute;
+  pointer-events: none;
+  top: 750px;
+  right: 890px;
+}
+
+#newblackMid{
+  position: absolute;
+  pointer-events: none;
+  top: 430px;
+  right: 1010px;
+}
+
+#catskinner{
+  position: absolute;
+  pointer-events: none;
+  top: 390px;
+  right: 990px;
+}
+#symphony{
+  position: absolute;
+  pointer-events: none;
+  top: 195px;
+  right: 390px;
+}
+#harmony{
+  position: absolute;
+  pointer-events: none;
+  top: 260px;
+  right: 330px;
+}
+#emerald6{
+  position: absolute;
+  pointer-events: none;
+  top: 360px;
+  right: 340px;
+}
+#villageMid{
+  position: absolute;
+  pointer-events: none;
+  top: 610px;
+  right: 430px;
+}
+#villageLow{
+  position: absolute;
+  pointer-events: none;
+  top: 790px;
+  right: 520px;
+}
+#garbanzo{
+  position: absolute;
+  pointer-events: none;
+  top: 625px;
+  right: 400px;
+}
+#fitz{
+  position: absolute;
+  pointer-events: none;
+  top: 820px;
+  right: 515px;
+}
+#bigred{
+  position: absolute;
+  pointer-events: none;
+  top: 545px;
+  right: 115px;
+}
+#franz{
+  position: absolute;
+  pointer-events: none;
+  top: 380px;
+  right: 157px;
+}
+#tbar{
+  position: absolute;
+  pointer-events: none;
+  top: 280px;
+  right: 169px;
+}
+#creekside{
+  position: absolute;
+  pointer-events: none;
+  top: 790px;
+  right: -70px;
+}
+#peak{
+  position: absolute;
+  pointer-events: none;
+  top: 246px;
+  right: 68px;
+}
 #weathericon{
     position: relative;
-    top: -1210px;
+    top: -1220px;
     right: -920px;
 }
 
@@ -95,7 +257,11 @@ i{
     color: rgb(90, 90, 90);
 }
 
-svg {
+.progress-ring__circle{
+  stroke-dasharray: 6 10;
+}
+
+#weathericon svg {
     width: 48px;
     height: 48px;
     margin: 24px 0 0 40px;
