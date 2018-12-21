@@ -97,6 +97,7 @@ i{
     font-weight: 800;
     color: rgb(0, 40, 87);
 }
+/* Whistler */
 
 #p2p{
   position: absolute;
@@ -260,6 +261,62 @@ i{
   top: 246px;
   right: 68px;
 }
+
+/* Stevens Pass */
+#doublediamond{
+  position: absolute;
+  pointer-events: none;
+  top: 375px;
+  right: 1230px;
+}
+
+#kehr{
+  position: absolute;
+  pointer-events: none;
+  top: 805px;
+  right: 800px;
+}
+
+#tyeM{
+  position: absolute;
+  pointer-events: none;
+  top: 400px;
+  right: 670px;
+}
+#dais{
+  position: absolute;
+  pointer-events: none;
+  top: 760px;
+  right: 570px;
+}
+
+#hogs{
+  position: absolute;
+  pointer-events: none;
+  top: 795px;
+  right: 490px;
+}
+
+#skylineEx{
+  position: absolute;
+  pointer-events: none;
+  top: 730px;
+  right: 265px;
+}
+
+#brook{
+  position: absolute;
+  pointer-events: none;
+  top: 740px;
+  right: 160px;
+}
+#seventhH{
+  position: absolute;
+  pointer-events: none;
+  top: 229px;
+  right: -200px;
+}
+
 #weathericon{
     position: relative;
     top: -1220px;

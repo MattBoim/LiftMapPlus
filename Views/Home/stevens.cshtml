@@ -13,7 +13,7 @@
         <area title="7thHeaven" coords="1768,323,20" shape="circle" class="tooltipp" data-tooltip-content="#7th">
         <area title="Brooks" coords="1411,834,20" shape="circle" class="tooltipp" data-tooltip-content="#brooks">
         <area title="Daisy" coords="1003,859,20" shape="circle" class="tooltipp" data-tooltip-content="#daisy">
-        <area title="DoubleDiamond" coords="347,476,20" shape="circle" class="tooltipp" data-tooltip-content="#dd">
+        <area title="DoubleDiamond" coords="347,476,50" shape="circle" class="tooltipp" data-tooltip-content="#dd">
         <area title="Hogsback" coords="1087,890,20" shape="circle" class="tooltipp" data-tooltip-content="#hogsback">
         <area title="Kehrs" coords="772,901,20" shape="circle" class="tooltipp" data-tooltip-content="#kehrs">
         <area title="Skyline" coords="1309,829,20" shape="circle" class="tooltipp" data-tooltip-content="#skyline">
@@ -26,6 +26,416 @@
     <div id="stats">
         <h1>Open: @ViewBag.stats.percentage.open% | On Hold: @ViewBag.stats.percentage.hold% | Closed: @ViewBag.stats.percentage.closed%</h1>
         <p>@ViewBag.weather</p>
+        <div id="indicators">
+            <div id="doublediamond">
+                @{var j = ViewBag.status["Double Diamond"];}
+                @if(j == "open")
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="green"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="60"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+                else if(j == "hold")
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="yellow"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="60"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+                else
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="red"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="60"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+            </div>
+            <div id="kehr">
+                @{j = ViewBag.status["Kehr's Chair"];}
+                @if(j == "open")
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="green"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="60"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+                else if(j == "hold")
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="yellow"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="60"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+                else
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="red"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="60"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+            </div>
+            <div id="tyeM">
+                @{j = ViewBag.status["Tye Mill"];}
+                @if(j == "open")
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="green"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="50"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+                else if(j == "hold")
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="yellow"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="50"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+                else
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="red"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="50"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+            </div>
+            <div id="dais">
+                @{j = ViewBag.status["Daisy"];}
+                @if(j == "open")
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="green"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="40"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+                else if(j == "hold")
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="yellow"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="40"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+                else
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="red"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="40"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+            </div>
+            <div id="hogs">
+                @{j = ViewBag.status["Hogsback Express"];}
+                @if(j == "open")
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="green"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="60"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+                else if(j == "hold")
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="yellow"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="60"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+                else
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="red"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="60"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+            </div>
+            <div id="skylineEx">
+                @{j = ViewBag.status["SkyLine Express"];}
+                @if(j == "open")
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="green"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="60"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+                else if(j == "hold")
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="yellow"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="60"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+                else
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="red"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="60"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+            </div>
+            <div id="brook">
+                @{j = ViewBag.status["Brooks"];}
+                @if(j == "open")
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="green"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="40"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+                else if(j == "hold")
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="yellow"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="40"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+                else
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="red"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="40"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+            </div>
+            <div id="seventhH">
+                @{j = ViewBag.status["7th Heaven"];}
+                @if(j == "open")
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="green"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="50"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+                else if(j == "hold")
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="yellow"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="50"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+                else
+                {
+                    <svg
+                        class="progress-ring"
+                        width="120"
+                        height="120">
+                        <circle
+                            class="progress-ring__circle"
+                            stroke="red"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="50"
+                            cx="60"
+                            cy="60"/>
+                    </svg>
+                }
+            </div>
+        </div>
     </div>
     <div id="weathericon">
     <!-- <h1>ViewBag.conditions</h1> -->
